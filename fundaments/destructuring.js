@@ -30,9 +30,20 @@ const playersOfVasco = ([
 
 console.log(Vegetti, Paulinho, Galdames);
 
+function randNumber([min = 0, max = 10000]) {
+  if (min > max) [min, max] = [max, min];
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
+console.log(randNumber([50, 40]));
+console.log(randNumber([100]));
+console.log(randNumber([]));
+console.log(randNumber([69, 99]));
+console.log(randNumber([, 100]));
+//console.log(randNumber()); -> TypeError: Cannot read property 'length' of undefined
+
 // Destructuring in Functions
 function rand(min = 0, max = 10000) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
+  return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
 const randomNumber = { min: 27, max: 66 };
