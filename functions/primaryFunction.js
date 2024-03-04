@@ -28,3 +28,21 @@ console.log(add(2, 3)(4));
 const result = add(2, 3);
 console.log(result(10));
 
+const person = {
+  name: "Hellen",
+  age: 25,
+  city: "Madrid",
+  country: "Spain",
+};
+
+const p = new Proxy(person, {
+  set(target, key, value) {
+    if (key === "age" && value < 0) {
+      throw new Error("Age cannot be negative");
+    }
+    target[key] = value;
+  },
+});
+
+p.age = 23;
+console.log(p.age);

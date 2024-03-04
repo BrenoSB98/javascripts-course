@@ -25,3 +25,40 @@ console.log(nameProduct());
 
 const priceProduct = product.searchPrice.bind(product);
 console.log(priceProduct());
+
+function Person() {
+  this.name = "John";
+  this.age = 0;
+
+  setInterval(() => {
+    this.age++;
+    console.log(this.age);
+  }, 1000);
+}
+new Person();
+
+function counter() {
+  this.count = 0;
+
+  setInterval(
+    function () {
+      this.count++;
+      console.log(this.count);
+    }.bind(this),
+    1000
+  );
+}
+
+new counter();
+
+function counterTwo() {
+  this.count = 0;
+  const self = this;
+
+  setInterval(function () {
+    self.count++;
+    console.log(self.count);
+  }, 1000);
+}
+
+new counterTwo();
